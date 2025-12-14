@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+
+
+@theme {
+    /* Neon Palette */
+    --color-neon-blue: #00f3ff;
+    --color-neon-purple: #bc13fe;
+    --color-neon-pink: #ff00ff;
+
+    --color-bg-dark: #030014;
+    --color-surface: #0f172a;
+}
+
+/* Custom Utilities */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #00f3ff, #bc13fe);
+}
+
+.neon-glow {
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(188, 19, 254, 0.3);
+}
+
+.glass-panel {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

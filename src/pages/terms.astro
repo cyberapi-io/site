@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Terms of Service - CyberAPI" description="Terms of Service for CyberAPI Threat Intelligence Platform">
+	<!-- Navbar -->
+	<nav class="fixed w-full z-50 glass-panel border-b border-white/10">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex items-center justify-between h-16">
+				<div class="flex items-center gap-2">
+					<img src="/logo.png" alt="CyberAPI Logo" class="w-8 h-8 rounded-lg shadow-lg hover:rotate-12 transition-transform" />
+					<span class="font-bold text-xl tracking-tight text-white">CyberAPI</span>
+				</div>
+				<div class="hidden md:block">
+					<div class="ml-10 flex items-baseline space-x-8">
+						<a href="/" class="hover:text-cyan-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+						<a href="https://docs.cyberapi.io" class="hover:text-cyan-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Docs</a>
+						<a href="/#pricing" class="bg-cyan-500/10 border border-cyan-500/50 hover:bg-cyan-500/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.5)]">Get API Key</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<main class="bg-[#030014] min-h-screen">
+		<div class="pt-32 pb-20">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="glass-panel rounded-2xl p-8 md:p-12 border border-white/10">
+					<h1 class="text-4xl font-bold mb-4 text-white">Terms of Service</h1>
+					<p class="text-slate-400 mb-8">Last updated: December 14, 2025</p>
+
+					<div class="space-y-8 text-slate-300">
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">1. Acceptance of Terms</h2>
+							<p class="leading-relaxed">
+								By accessing or using CyberAPI's threat intelligence API service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">2. API Access and Usage</h2>
+							<h3 class="text-xl font-semibold text-white mb-3">2.1 API Keys</h3>
+							<p class="leading-relaxed mb-4">
+								You are responsible for maintaining the confidentiality of your API keys. You must not share your API keys publicly or with unauthorized parties. Any activity conducted using your API key is your responsibility.
+							</p>
+
+							<h3 class="text-xl font-semibold text-white mb-3">2.2 Rate Limits</h3>
+							<p class="leading-relaxed mb-4">
+								Your API usage is subject to rate limits based on your subscription tier:
+							</p>
+							<ul class="list-disc list-inside space-y-2 text-slate-400">
+								<li><strong>Startup</strong>: 10,000 requests/month</li>
+								<li><strong>Business</strong>: 50,000 requests/month</li>
+							</ul>
+							<p class="leading-relaxed mt-4">
+								Exceeding your rate limit may result in temporary service suspension or additional charges.
+							</p>
+
+							<h3 class="text-xl font-semibold text-white mb-3 mt-6">2.3 Prohibited Uses</h3>
+							<p class="leading-relaxed mb-4">You may not use the Service to:</p>
+							<ul class="list-disc list-inside space-y-2 text-slate-400">
+								<li>Violate any applicable laws or regulations</li>
+								<li>Infringe on intellectual property rights</li>
+								<li>Attempt to reverse engineer or circumvent security measures</li>
+								<li>Resell or redistribute API access without authorization</li>
+								<li>Generate excessive load or abuse the service</li>
+								<li>Use for illegal surveillance or harassment</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">3. Billing and Payments</h2>
+							<h3 class="text-xl font-semibold text-white mb-3">3.1 Subscription Fees</h3>
+							<p class="leading-relaxed mb-4">
+								Subscription fees are billed monthly in advance via Stripe. All fees are non-refundable except as required by law.
+							</p>
+
+							<h3 class="text-xl font-semibold text-white mb-3">3.2 Cancellation</h3>
+							<p class="leading-relaxed">
+								You may cancel your subscription at any time. Cancellation will take effect at the end of the current billing period. No refunds will be provided for partial months.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">4. Service Availability</h2>
+							<p class="leading-relaxed">
+								We strive to maintain 99.9% uptime but do not guarantee uninterrupted service. We reserve the right to modify, suspend, or discontinue the Service at any time with reasonable notice.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">5. Data Accuracy</h2>
+							<p class="leading-relaxed">
+								While we use industry-leading threat intelligence sources and machine learning models, we do not guarantee 100% accuracy. The Service is provided "as is" without warranties of any kind. You are responsible for validating results before taking action.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">6. Limitation of Liability</h2>
+							<p class="leading-relaxed">
+								To the maximum extent permitted by law, CyberAPI shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, arising from your use of the Service.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">7. Intellectual Property</h2>
+							<p class="leading-relaxed">
+								All content, features, and functionality of the Service are owned by CyberAPI and are protected by international copyright, trademark, and other intellectual property laws.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">8. Termination</h2>
+							<p class="leading-relaxed">
+								We may terminate or suspend your access immediately, without prior notice, for any reason, including breach of these Terms. Upon termination, your right to use the Service will cease immediately.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">9. Changes to Terms</h2>
+							<p class="leading-relaxed">
+								We reserve the right to modify these Terms at any time. We will notify users of material changes via email. Continued use of the Service after changes constitutes acceptance of the new Terms.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">10. Governing Law</h2>
+							<p class="leading-relaxed">
+								These Terms shall be governed by and construed in accordance with the laws of Italy, without regard to its conflict of law provisions.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">11. Contact Information</h2>
+							<p class="leading-relaxed">
+								For questions about these Terms, please contact us at:
+							</p>
+							<p class="mt-4">
+								<a href="mailto:inbox@cyberapi.io" class="text-cyan-400 hover:underline font-semibold">inbox@cyberapi.io</a>
+							</p>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="py-12 border-t border-white/5 bg-[#030014]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+			<div class="mb-4 md:mb-0">
+				&copy; 2025 CyberAPI. All rights reserved.
+			</div>
+			<div class="flex gap-6">
+				<a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+				<a href="/terms" class="hover:text-white transition-colors">Terms</a>
+				<a href="mailto:inbox@cyberapi.io" class="hover:text-white transition-colors">Contact</a>
+			</div>
+		</div>
+	</footer>
+</Layout>

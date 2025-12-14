@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberAPI Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="icon">🛡️</span>
+                <span class="text">CyberAPI</span>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="dashboard">
+                    <span class="icon">📊</span> Dashboard
+                </button>
+                <button class="nav-item" data-tab="customers">
+                    <span class="icon">👥</span> Customers
+                </button>
+                <button class="nav-item" data-tab="test-keys">
+                    <span class="icon">🔑</span> Test Keys
+                </button>
+                <button class="nav-item" data-tab="audit">
+                    <span class="icon">📜</span> Audit Log
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="connection-status">
+                    <span id="status-dot" class="dot"></span>
+                    <span id="status-text">Connecting...</span>
+                </div>
+                <button id="logout-btn" class="logout-btn">
+                    Change Key
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <h1 id="page-title">Dashboard</h1>
+                <div class="actions">
+                    <button id="refresh-btn" class="icon-btn" title="Refresh Data">🔄</button>
+                    <span id="last-update" class="timestamp">Just now</span>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <div id="view-dashboard" class="view active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Requests</h3>
+                        <div class="value" id="stat-total-req">...</div>
+                        <span class="trend positive">24h History</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Users</h3>
+                        <div class="value" id="stat-active-users">...</div>
+                        <span class="label">Total active keys</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>System Load</h3>
+                        <div class="value" id="stat-system-load">...</div>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card highlight">
+                        <h3>Revenue (Est.)</h3>
+                        <div class="value" id="stat-revenue">$...</div>
+                        <span class="label">Monthly recurring</span>
+                    </div>
+                </div>
+
+                <!-- Capacity & Limits Section (Moved from separate tab) -->
+                <div class="capacity-section"
+                    style="margin-top: 2rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-color);">System Capacity & Limits</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div id="limits-list" class="metrics-list">
+                            <!-- Populated via JS -->
+                        </div>
+                        <div style="height: 200px;">
+                            <canvas id="capacityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid" style="margin-top: 2rem;">
+                    <div class="chart-card large">
+                        <h3>Traffic History</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card large">
+                        <h3>API Latency</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="latencyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Customer Distribution</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="customerChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Response Status</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers View -->
+            <div id="view-customers" class="view">
+                <div class="toolbar">
+                    <input type="text" placeholder="Search customer..." class="search-input">
+                    <div class="filters">
+                        <select class="filter-select">
+                            <option value="all">All Tiers</option>
+                            <option value="startup">Startup</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table" id="customers-table">
+                        <thead>
+                            <tr>
+                                <th>Email / Hash</th>
+                                <th>Tier</th>
+                                <th>Status</th>
+                                <th>Usage / Limit</th>
+                                <th>Signed Up</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Test Keys View -->
+            <div id="view-test-keys" class="view">
+                <div class="card create-key-card">
+                    <h2>Generate Test Key</h2>
+                    <form id="create-key-form" class="inline-form">
+                        <input type="email" name="email" placeholder="Test Email" required>
+                        <select name="tier">
+                            <option value="startup">Startup Tier</option>
+                            <option value="business">Business Tier</option>
+                        </select>
+                        <input type="text" name="note" placeholder="Note (optional)">
+                        <button type="submit" class="btn primary">Generate Key</button>
+                    </form>
+                    <div id="new-key-result" class="key-result hidden">
+                        <p>Key Created:</p>
+                        <code id="new-key-value">...</code>
+                        <button class="btn small copy-btn" data-target="new-key-value">Copy</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <h3>Active Test Keys</h3>
+                    <table class="data-table" id="test-keys-table">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Tier</th>
+                                <th>Note</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Audit View -->
+            <div id="view-audit" class="view">
+                <div class="table-container">
+                    <table class="data-table" id="audit-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated via JS -->
+                            <tr>
+                                <td colspan="4" class="empty">Audit logging not yet implemented in backend</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <h2>Admin Access</h2>
+            <p>Please enter your Admin API Key to continue.</p>
+            <form id="auth-form">
+                <input type="password" id="api-key-input" placeholder="sk_admin_..." required>
+                <button type="submit" class="btn primary full-width">Connect</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Action successful</div>
+
+    <script src="js/charts.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

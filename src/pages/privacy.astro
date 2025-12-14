@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy - CyberAPI" description="Privacy Policy for CyberAPI Threat Intelligence Platform">
+	<!-- Navbar -->
+	<nav class="fixed w-full z-50 glass-panel border-b border-white/10">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex items-center justify-between h-16">
+				<div class="flex items-center gap-2">
+					<img src="/logo.png" alt="CyberAPI Logo" class="w-8 h-8 rounded-lg shadow-lg hover:rotate-12 transition-transform" />
+					<span class="font-bold text-xl tracking-tight text-white">CyberAPI</span>
+				</div>
+				<div class="hidden md:block">
+					<div class="ml-10 flex items-baseline space-x-8">
+						<a href="/" class="hover:text-cyan-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+						<a href="https://docs.cyberapi.io" class="hover:text-cyan-400 text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Docs</a>
+						<a href="/#pricing" class="bg-cyan-500/10 border border-cyan-500/50 hover:bg-cyan-500/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.5)]">Get API Key</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<main class="bg-[#030014] min-h-screen">
+		<div class="pt-32 pb-20">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="glass-panel rounded-2xl p-8 md:p-12 border border-white/10">
+					<h1 class="text-4xl font-bold mb-4 text-white">Privacy Policy</h1>
+					<p class="text-slate-400 mb-8">Last updated: December 14, 2025</p>
+
+					<div class="space-y-8 text-slate-300">
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">1. Introduction</h2>
+							<p class="leading-relaxed">
+								CyberAPI ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our threat intelligence API service.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">2. Information We Collect</h2>
+							<h3 class="text-xl font-semibold text-white mb-3">2.1 Account Information</h3>
+							<ul class="list-disc list-inside space-y-2 mb-4 text-slate-400">
+								<li>Email address</li>
+								<li>Payment information (processed securely via Stripe)</li>
+								<li>API keys and usage statistics</li>
+							</ul>
+
+							<h3 class="text-xl font-semibold text-white mb-3">2.2 API Usage Data</h3>
+							<ul class="list-disc list-inside space-y-2 text-slate-400">
+								<li>Domains and IP addresses queried through our API</li>
+								<li>Request timestamps and response times</li>
+								<li>API key used for authentication</li>
+								<li>Rate limiting and quota information</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">3. How We Use Your Information</h2>
+							<p class="leading-relaxed mb-4">We use the collected information to:</p>
+							<ul class="list-disc list-inside space-y-2 text-slate-400">
+								<li>Provide and maintain our API service</li>
+								<li>Process payments and manage subscriptions</li>
+								<li>Monitor API usage and enforce rate limits</li>
+								<li>Improve our threat intelligence algorithms</li>
+								<li>Send service-related notifications</li>
+								<li>Detect and prevent fraud or abuse</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">4. Data Retention</h2>
+							<p class="leading-relaxed">
+								We retain API query logs for up to 90 days for service improvement and security purposes. Account information is retained as long as your account is active. You may request account deletion at any time by contacting us at <a href="mailto:inbox@cyberapi.io" class="text-cyan-400 hover:underline">inbox@cyberapi.io</a>.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">5. Data Security</h2>
+							<p class="leading-relaxed">
+								We implement industry-standard security measures including:
+							</p>
+							<ul class="list-disc list-inside space-y-2 mt-4 text-slate-400">
+								<li>Encrypted data transmission (TLS/SSL)</li>
+								<li>Secure API key hashing (Argon2)</li>
+								<li>Regular security audits</li>
+								<li>Access controls and monitoring</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">6. Third-Party Services</h2>
+							<p class="leading-relaxed mb-4">We use the following third-party services:</p>
+							<ul class="list-disc list-inside space-y-2 text-slate-400">
+								<li><strong>Stripe</strong> - Payment processing (subject to Stripe's Privacy Policy)</li>
+								<li><strong>Cloudflare</strong> - CDN and DDoS protection</li>
+								<li><strong>Redis</strong> - Caching (self-hosted)</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">7. Your Rights (GDPR)</h2>
+							<p class="leading-relaxed mb-4">If you are in the European Economic Area, you have the right to:</p>
+							<ul class="list-disc list-inside space-y-2 text-slate-400">
+								<li>Access your personal data</li>
+								<li>Rectify inaccurate data</li>
+								<li>Request data deletion</li>
+								<li>Object to data processing</li>
+								<li>Data portability</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">8. Cookies</h2>
+							<p class="leading-relaxed">
+								We use minimal cookies for essential functionality only. No tracking or advertising cookies are used.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">9. Changes to This Policy</h2>
+							<p class="leading-relaxed">
+								We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+							</p>
+						</section>
+
+						<section>
+							<h2 class="text-2xl font-semibold text-cyan-400 mb-4">10. Contact Us</h2>
+							<p class="leading-relaxed">
+								If you have any questions about this Privacy Policy, please contact us at:
+							</p>
+							<p class="mt-4">
+								<a href="mailto:inbox@cyberapi.io" class="text-cyan-400 hover:underline font-semibold">inbox@cyberapi.io</a>
+							</p>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="py-12 border-t border-white/5 bg-[#030014]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+			<div class="mb-4 md:mb-0">
+				&copy; 2025 CyberAPI. All rights reserved.
+			</div>
+			<div class="flex gap-6">
+				<a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+				<a href="/terms" class="hover:text-white transition-colors">Terms</a>
+				<a href="mailto:inbox@cyberapi.io" class="hover:text-white transition-colors">Contact</a>
+			</div>
+		</div>
+	</footer>
+</Layout>
